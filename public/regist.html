@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页面</title>
+	<link rel="stylesheet" href="stylesheets/user.css" type="text/css">
+</head>
+<body>
+<div class="body_bg"></div>
+<div class="reg_box">
+	<h1>用户注册</h1>
+	<div>
+		<span>用户名：</span><input type="text" id="user"></p>
+	</div>
+	<p id="isUser"></p>
+	<div>
+		<span>密码：</span><input type="password" id="pass">
+	</div>
+	<p id="isPass"></p>
+	<div>
+		<span>确认密码：</span><input type="password" id="configPass">
+	</div>
+	<p id="isConPass"></p>
+	<div class="btn2">
+		<a href="login.html" class="right1">登陆</a>
+		<button id="registbtn">注册</button>
+	</div>
+</div>
+
+<div class="black_bg" id="add_result">
+	<div class="add_result">
+		<div class="add_result_title">提示框</div>
+		<div class="add_result_body">
+			<div>
+				<img id="result_img" src="images/success.jpg">
+			</div>
+			<div id="msg_result"></div>
+		</div>
+		<div class="add_result_footer">
+			<div id="sureBtn">确定</div>
+		</div>
+	</div>
+</div>
+<script src="javascripts/jquery-2.1.4.min.js"></script>
+<script src="javascripts/base64.js"></script>
+<script src="javascripts/regist.js"></script>
+</body>
+</html>

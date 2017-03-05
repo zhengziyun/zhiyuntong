@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登陆页面</title>
+	<link rel="stylesheet" href="stylesheets/user.css" type="text/css">
+</head>
+<body>
+<div class="body_bg"></div>
+<div class="lg_box">
+	<h1>用户登陆</h1>
+	<div>
+		<h3>用户名：</h3>
+		<p><input type="text" id="user"></p>
+	</div>
+	<p id="isUser"></p>
+	<div>
+		<h3>密码：</h3>
+		<p><input type="password" id="pass"></p>
+	</div>
+	<p id="isPass"></p>
+	<div class="btn">
+		<a href="regist.html">注册</a>
+		<button id="loginbtn">登陆</button>
+	</div>
+	<div class="result_msg"></div>
+</div>
+<script src="javascripts/jquery-2.1.4.min.js"></script>
+<script src="javascripts/base64.js"></script>
+<script src="javascripts/login.js"></script>
+</body>
+</html>

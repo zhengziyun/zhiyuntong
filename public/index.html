@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>主页</title>
+	<link rel="stylesheet" href="stylesheets/index.css" type="text/css">
+</head>
+<body>
+<div class="header_box">
+	<header>
+		<div class="logo">
+			<img src="images/logo.png">
+		</div>
+		<div class="details">
+			<div class="details_top">
+				<a id="tuichu">安全退出</a>
+				<div>您好：<span id="uname" style="color:#f00;"></span>！</div>
+			</div>
+			<div class="details_bottom">
+				<div>搜索类型：<select id="searchCls"><option value="default">默认客户</option><option value="name">姓名</option><option value="com2">年龄</option><option value="sex">性别</option><option value="importance">客户阶段</option><option value="tel">电话</option><option value="qq">QQ</option></select></div>
+			  <div>
+					<input type="search" placeholder="请输入搜索内容" id="searchIpt"><button id="searchBtn">搜索</button>
+				</div>
+			</div>
+		</div> 
+	</header>
+</div>
+<div class="container">
+	<div class="content">
+		<div class="add">
+			<div class="add_title">添加客户</div>
+			<li><p><span>姓名：</span><input type="text" id="name"></p><p id="isName"></p></li>
+			<li><p><span>年龄：</span><input type="number" id="old"></p><p id="isOld"></p></li>
+			<li><p><span>性别：</span><input type="text" id="sex"></p><p id="isSex"></p></li>
+			<li><p><span>电话：</span><input type="tel" id="tel"></p><p id="isTel"></p></li>
+			<li><p><span>公司：</span><input type="text" id="company"></p><p id="isCpy"></p></li>
+			<li><p><span>职位：</span><input type="text" id="job"></p><p id="isJob"></p></li>
+			<li><p><span>兴趣爱好：</span><input type="text" id="habit"></p><p id="isHabit"></p></li>
+			<li><p><span>空闲时间：</span><input type="text" id="freetime"></p><p id="isFree"></p></li>
+			<li><p><span>住址：</span><input type="text" id="address"></p><p id="isAddr"></p></li>
+			<li><p><span>邮箱：</span><input type="email" id="email"></p><p id="isEmail"></p></li>
+			<li><p><span>QQ：</span><input type="number" id="qq"></p><p id="isQQ"></p></li>
+			<li><p><span>客户阶段：</span><select><option value="1" id="import">成交客户</option><option value="2">商机客户</option><option value="3">储蓄客户</option></select></p><p id="isImport"></p></li>
+			<li><button id="addBtn">添加</button></li>
+		</div>
+		<div class="comLists">
+			<div class="comLists_nei">
+				<div class="comLists_title">
+					<span>客户管理</span>
+					<span><input type="radio" name="kehuclass" id="personCum">我的客户</span>
+					<span><input type="radio" name="kehuclass" id="publicCum">团队客户</span>
+				</div>
+				<div class="comLists_bottom">
+					<div class="comLists_lists">
+						<table border="1" cellspacing="2" cellpadding="2">
+							<thead>
+								<tr>
+									<th>操作</th>
+									<th>姓名</th>
+									<th>年龄</th>
+									<th>性别</th>
+									<th>电话</th>
+									<th>公司</th>
+									<th>职位</th>
+									<th>客户阶段</th>
+									<th>兴趣爱好</th>
+									<th>空闲时间</th>
+									<th>住址</th>
+									<th>邮箱</th>
+									<th>QQ</th>
+								</tr>
+							</thead>
+							<tbody id="tobo  dy"></tbody>
+						</table>
+					</div>
+					<p class="zongtiaoshu">总条数：<span id="totalLists"></span></p>
+					<p class="yeshu">页数：<span id="totalPage"></span></p>
+					<a id="prevPage">上一页</a>
+					<a id="nextPage">下一页</a>
+					<div class="introduction">
+						<img src="images/search.jpg">
+						<ul>
+							<li>搜索说明：</li>
+							<li>可以选择搜索类型，然后写入对应搜索内容即可。</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="black_bg" id="addConcat">
+	<div class="detailBox">
+		<div class="close">×</div>
+		<div class="detailBox1">
+			<div class="detailBox12">
+				<div class="details_title">添加通话记录</div>
+				<ul>
+					<li>
+						<span>客户编号</span>
+						<span id="cusBianhao"></span>
+					</li>
+					<li>
+						<span>客户姓名</span>
+						<span><input type="text" id="username2"></span>
+					</li>
+					<li>
+						<span>本次日期</span>
+						<span><input type="text" id="benci" ></span>
+					</li>
+					<li>
+						<span>下次日期</span>
+						<span><input type="tel" id="xiaci"></span>
+					</li>
+					<li>
+						<span class="pd_right">通话内容</span>
+						<span class="pd_left"><input type="text" id="content"></span>
+					</li>
+				</ul>
+				<button class="updateBtn" id="addRecord">添加</button>
+			</div>
+			<div class="detailBox12 height1" id="telRecords">
+				<div class="noRecords">
+					<img src="images/hh.png">
+					<p>您还没有添加通话记录</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="black_bg" id="updateCustom">
+	<div class="detailBox">
+		<div class="close">×</div>
+		<div class="detailBox1">
+			<div class="detailBox12">
+				<div class="details_title">客户信息</div>
+				<ul>
+					<li>
+						<span>姓名</span>
+						<span><input type="text" id="kh_name"></span>
+					</li>
+					<li>
+						<span>年龄</span>
+						<span><input type="text" id="kh_age"></span>
+					</li>
+					<li>
+						<span>性别</span>
+						<span><input type="text" id="kh_sex"></span>
+					</li>
+					<li>
+						<span>电话</span>
+						<span><input type="tel" id="kh_tel"></span>
+					</li>
+					<li>
+						<span>公司</span>
+						<span><input type="text" id="kh_company"></span>
+					</li>
+					<li>
+						<span>工作</span>
+						<span><input type="text" id="kh_job"></span>
+					</li>
+					<li>
+						<span>客户阶段</span>
+						<span><select id="kh_important"><option value="1">成交客户</option><option value="2">商机客户</option><option value="3">储蓄客户</option></select></span>
+					</li>
+					<li>
+						<span>兴趣爱好</span>
+						<span><input type="text" id="kh_habits"></span>
+					</li>
+					<li>
+						<span>空闲时间</span>
+						<span><input type="text" id="kh_freetime"></span>
+					</li>
+					<li>
+						<span>邮箱</span>
+						<span><input type="email" id="kh_email"></span>
+					</li>
+					<li>
+						<span>QQ</span>
+						<span><input type="number" id="kh_qq"></span>
+					</li>
+					<li>
+						<span>加入时间</span>
+						<span><input type="text" id="kh_jointime" disabled="disabled"></span>
+					</li>
+					<li>
+						<span class="pd_right">住址</span>
+						<span class="pd_left"><input type="text" id="kh_address"></span>
+					</li>
+				</ul>
+				<button class="updateBtn" id="updateBtn2">修改</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="black_bg" id="add_result">
+	<div class="add_result">
+		<div class="add_result_title">提示框</div>
+		<div class="add_result_body">
+			<div>
+				<img id="result_img" src="images/success.jpg">
+			</div>
+			<div id="msg_result"></div>
+		</div>
+		<div class="add_result_footer">
+			<div id="sureBtn">确定</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	智云通OA办公软件，云网上记账，云CRM客户关系和HR人力资源管理－智云通办公系统<br/>
+	杭州数用信息技术有限公司版权所有 Copyright@zyunt.com All rights reserved 浙ICP备12029789号-1
+</div>
+
+<script src="javascripts/jquery-2.1.4.min.js"></script>
+<script src="javascripts/index.js"></script>
+</body>
+</html>

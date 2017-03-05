@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div>姓名：<input type="text" id="name"></div>
+<div>性别：<input type="text" id="sex"></div>
+<div>年龄：<input type="number" id="old"></div>
+<div>电话：<input type="tel" id="tel"></div>
+<div>公司：<input type="text" id="company"></div>
+<div>职位：<input type="text" id="job"></div>
+<div>客户阶段：<input type="text" id="important"></div>
+<div>兴趣爱好：<input type="text" id="habits"></div>
+<div>空闲时间：<input type="text" id="freetime"></div>
+<div>地址：<input type="text" id="addr"></div>
+<div>邮箱：<input type="email" id="email"></div>
+<div>QQ：<input type="number" id="qq"></div>
+<div><button id="subtn">提交</button></div>
+
+<script src="javascripts/jquery-2.1.4.min.js"></script>
+<script>
+var id = location.href.split("=")[1];
+$("#subtn").click(function(){
+	$.ajax({
+		type:"post",
+		url: "http://localhost:8005/custom/update",
+		data: {
+			name: $("#name").val(),
+			old: $("#old").val(),
+			sex: $("#sex").val(),
+			tel: $("#tel").val(),
+			company: $("#company").val(),
+			job: $("#job").val(),
+			important: $("#important").val(),
+			habits: $("#habits").val(),
+			freetime: $("#freetime").val(),
+			addr: $("#addr").val(),
+			email: $("#email").val(),
+			qq: $("#qq").val(),
+			cId: id
+		},
+		success: function(e){
+			console.log(e);
+		}
+	})
+});
+</script>
+</body>
+</html>

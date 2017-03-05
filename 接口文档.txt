@@ -1,0 +1,213 @@
+注册：
+type: post
+  url: 'http://localhost:8805/admin/regist'
+  data: {
+    username: "",
+    password: ""
+  }
+返回 {flag : 1}
+ flag : 1      success
+ flag : 2      账号已被注册
+ flag : 3      注册失败
+
+登陆
+type: post
+  url: 'http://localhost:8805/admin/login'
+  data: {
+    username: "",
+    password: ""
+  }
+返回 {flag : 1}
+ flag : 1      success
+ flag : 2      账号错误
+ flag : 3      密码错误
+
+
+添加用户：
+type: post
+url: "http://localhost:8805/custom/add"，
+data: {
+  name: "xxx",             // 姓名
+  com2: "",                     // 年龄
+  sex: "男",                  // 性别
+  tel: "xxxx",                // 电话
+  company: "",            // 公司
+  job:  "",                    // 职位
+  belong: userID,        // userID为管理者id    公海客户为-1
+  importance: "1",       // 客户阶段   1:成交客户 2:商机客户 3:储蓄客户
+  habits: "打篮球",       // 兴趣爱好
+  freetime: "",             // 空闲时间
+  address: "大兴区",    // 住址 
+  email: "xxx",            // 邮箱
+  qq: "xxx",                // QQ号
+}
+返回：
+{flag:1}        // 添加成功
+
+
+公海客户列表：
+type: get
+url: "http://localhost:8005/custom/public"
+返回:
+[{
+  cusID: "xxx",           // 客户的 id 后台自动生成
+  name: "xxx",
+  sex: "男",
+  tel: "13716140441",
+  company: "华为",
+  job: "前端工程师",
+  belong: "-1",         // 公海客户为-1
+  importance: "1", 
+  habits: "打篮球",
+  freetime: "am11:00-pm2:00",
+  address: "北京市大兴区",
+  email: "m1319365069@163.com",
+  qq: "xxxxxxxxx",
+  jointime: "2017-02-15"
+},...]
+
+
+个人客户列表数据：
+type: post
+  url: 'http://localhost:8805/custom/lists'
+  data: {
+    username: "",
+    cusid: ""
+  }
+返回：
+[{
+  cusID: "1",           // 客户的 id 后台自动生成
+  name: "xxx",
+  sex: "男",
+  tel: "13716140441",
+  company: "华为",
+  job: "前端工程师",
+  belong: "",
+  importance: "1", 
+  habits: "打篮球",
+  freetime: "am11:00-pm2:00",
+  address: "北京市大兴区",
+  email: "m1319365069@163.com",
+  qq: "xxxxxxxxx",
+  jointime: "2017-02-15"
+},...]
+
+
+修改客户信息：
+type: post
+url: "http://localhost:8005/custom/update"
+data: {
+  cusID: "",
+  name: "xxx",             // 姓名
+  sex: "男",                  // 性别
+  tel: "xxxx",                // 电话
+  company: "",            // 公司
+  job:  "",                    // 职位
+  importance: "1",       // 客户分类 1:成交客户 2:商机客户 3:储蓄客户
+  habits: "打篮球",       // 兴趣爱好
+  freetime: "",             // 空闲时间
+  address: "大兴区",    // 住址 
+  email: "xxx",            // 邮箱
+  qq: "xxx",                // QQ号
+}
+返回：
+{flag:1}               // 修改成功
+
+
+将个人客户转为公海
+type: get
+url: "http://localhost:8005/custom/changepublic"
+data: {
+  userID: ""
+}
+返回
+{ flag : 1 }            // 转公海成功
+
+
+将公海客户转为个人客户
+type: post
+url: "http://localhost:8005/custom/changepersonal"
+data: {
+  userID: ""
+}
+返回
+{ flag : 1 }            // 转个人成功
+
+
+搜索接口        // 搜索个人客户
+type: post
+url: "http://localhost:8005/custom/search"
+data: {
+  searchmsg: ""
+}
+返回
+[{
+  cusID: "1",           // 客户的 id 后台自动生成
+  name: "xxx",
+  sex: "男",
+  tel: "13716140441",
+  company: "华为",
+  job: "前端工程师",
+  belong: "",
+  importance: "1", 
+  habits: "打篮球",
+  freetime: "am11:00-pm2:00",
+  address: "北京市大兴区",
+  email: "m1319365069@163.com",
+  qq: "xxxxxxxxx",
+  jointime: "2017-02-15"
+},...]
+
+
+添加通话记录表：
+type: post，
+url: 'http://localhost:8005/telrecord/add'
+data: {
+  cusID:"",            // 客户id
+  time: "",             // 通话时间
+  message: "",      // 通话内容
+  nexttime: ""      // 下次通话时间
+}
+
+
+查看通话记录：
+type: post
+url: 'http://localhost:8005/telrecord/details'
+data: {
+  cusID: ""
+}
+返回
+[{
+  cusID:"",            // 客户id
+  time: "",             // 通话时间
+  message: "",      // 通话内容
+  remarks: "",       // 备注
+  nexttime: ""      // 下次通话时间
+}]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

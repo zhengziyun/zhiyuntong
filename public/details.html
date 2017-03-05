@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+<script src="javascripts/jquery-2.1.4.min.js"></script>
+<script>
+	var url = location.href;      // http://localhost:8005/details.html?id=3
+	var id = url.split("=")[1];
+	$.ajax({
+		type: "get",
+		url: "http://localhost:8005/custom/details?cusId=" + id,
+		success: function(e){
+			console.log(e);
+		}
+	});
+</script>
+</body>
+</html>

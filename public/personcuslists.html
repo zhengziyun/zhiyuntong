@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<ul id="ul"></ul>
+<script src="javascripts/jquery-2.1.4.min.js"></script>
+<script>
+$.ajax({
+	type: "get",
+	url: "http://localhost:8005/custom/isusing?tag=1",
+	success: function(e){
+		console.log(e);
+		var html = '';
+		for(var i=0; i<e.length; i++){
+			html += '<li>'+e[i].name+e[i].sex+e[i].tel+'<button class="delete" id='+e[i].cusId+'>delete</button><button class="details" id='+e[i].cusId+'>details</button><button class="update" id='+e[i].cusId+'>update</button></li>';
+		};
+		$("#ul").html(html);
+		$(".delete").click(function(){
+			$.ajax({
+				type: "get",
+				url: "http://localhost:8005/custom/del",
+				// params: {id: $(this).attr('id')},
+				success: function(e){
+					console.log(e);
+				}
+			})
+		});
+		$(".details").click(function(){
+			alert($(this).attr("id"));
+			location.href = "details.html?id=" + $(this).attr("id");
+		});
+		$(".update").click(function(){
+			alert($(this).attr("id"));
+			location.href = "update.html?id=" + $(this).attr("id");
+		});
+	},
+	error: function(){
+		alert("error!");
+	}
+})
+
+
+</script>
+</body>
+</html>
